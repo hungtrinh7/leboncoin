@@ -1,7 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CATEGORIES } from "../../data/categories";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 const Menu = ({ name, children }) => {
   return (
@@ -29,12 +30,15 @@ export const SubMenu = () => {
 
   const handleMouseEnter = (e, id) => {
     setIsMenuHover(true);
-    setCurrentCategory(CATEGORIES.find((category) => category.id === id));
-    if (currentCategory) {
-      setCategories(currentCategory.list);
-    }
+    setCurrentCategory(() => CATEGORIES.find((category) => category.id === id));
     setIsSubMenuShown(true);
   };
+
+  useEffect(() => {
+    if (currentCategory) {
+      setCategories(() => currentCategory.list);
+    }
+  }, [currentCategory]);
 
   return (
     <div className="flex relative gap-4 text-[14px]">
@@ -54,32 +58,43 @@ export const SubMenu = () => {
       {isMenuHover && isSubMenuShown && (
         <div
           onMouseLeave={() => setIsSubMenuShown(false)}
-          className="absolute flex top-0 mt-14 w-full border-2 rounded-b-lg drop-shadow-md bg-white"
+          className="absolute flex top-0 mt-14 w-full max-h-[450px] border-2 rounded-b-lg drop-shadow-md bg-white"
         >
-          <div className="bg-slate-50 p-7 shrink-0 grow-0 basis-[20.5rem] bg-neutral-container px-xl py-2xl">
+          <div className="bg-slate-50 p-7 shrink-0 grow-0 basis-[10rem] bg-neutral-container px-xl py-2xl">
             {currentCategory && (
-              <h2 className="flex items-center pl-3 border-l border-black text-base font-bold">
+              <h2 className="flex items-center pl-3 border-l border-black font-bold">
                 {currentCategory.icon}
-                <span className="ml-2">{currentCategory.name}</span>
+                <span className="ml-2 text-base">{currentCategory.name}</span>
               </h2>
             )}
           </div>
-          <div className="p-6">
+          <div className="flex flex-wrap flex-col gap-6 p-6">
             {categories &&
               categories.map((category) => (
                 <div key={category.id} className="text-base">
-                  <Link href={""} className="font-bold hover:text-[#EC5A12]">
+                  <Link
+                    href={""}
+                    className="flex mt-2 font-bold hover:text-[#EC5A12]"
+                  >
                     {category.name}
+                    <span className="ml-1">
+                      {category.targetBlank && <ExternalLink size={16} />}
+                    </span>
                   </Link>
-                  <div className="mt-4">
+                  <div className="">
                     {category.subCategories &&
                       category.subCategories.map((subCategory) => (
                         <Link
                           href={""}
                           key={subCategory.id}
-                          className="block hover:text-[#EC5A12] text-sm"
+                          className="flex mt-1 hover:text-[#EC5A12] text-sm"
                         >
                           {subCategory.name}
+                          <span className="ml-1">
+                            {subCategory.targetBlank && (
+                              <ExternalLink size={16} />
+                            )}
+                          </span>
                         </Link>
                       ))}
                   </div>
