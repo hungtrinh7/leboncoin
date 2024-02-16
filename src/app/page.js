@@ -103,7 +103,7 @@ export default function Home() {
           En ce moment sur leboncoin
         </h2>
         <h3 className="text-lg font-semibold mt-5">Jeux & Jouets</h3>
-        <div className="flex relative gap-2 mt-4 overflow-x-auto pb-6">
+        <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
           {toys.map((toy) => (
             <Card
               src={toy.src}
