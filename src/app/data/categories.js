@@ -2,9 +2,9 @@ import {
   Armchair,
   Bike,
   CarFront,
+  CloudSun,
   GripHorizontal,
   Home,
-  HomeIcon,
   Luggage,
   Shirt,
   Smartphone,
@@ -209,7 +209,7 @@ export const CATEGORIES = [
   {
     id: 3,
     name: "Location de vacances",
-    icon: <HomeIcon size={16} />,
+    icon: <CloudSun size={36} />,
     list: [
       {
         id: 1,

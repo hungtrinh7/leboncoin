@@ -51,16 +51,16 @@ export const SubMenu = () => {
             {category.name}
           </button>
           {lastElement !== category && (
-            <span className="h-[50px] before:content-['·']"></span>
+            <span className="h-[35px] before:content-['·'] "></span>
           )}
         </div>
       ))}
       {isMenuHover && isSubMenuShown && (
         <div
           onMouseLeave={() => setIsSubMenuShown(false)}
-          className="absolute flex top-0 mt-14 w-full max-h-[450px] border-2 rounded-b-lg drop-shadow-md bg-white"
+          className="absolute flex top-0 mt-[50px] w-full max-h-[450px] border-2 rounded-b-lg drop-shadow-md bg-white z-10"
         >
-          <div className="bg-slate-50 p-7 shrink-0 grow-0 basis-[10rem] bg-neutral-container px-xl py-2xl">
+          <div className="bg-slate-50 p-7 shrink-0 grow-0 basis-[11rem] bg-neutral-container px-xl py-2xl">
             {currentCategory && (
               <h2 className="flex items-center pl-3 border-l border-black font-bold">
                 {currentCategory.icon}
