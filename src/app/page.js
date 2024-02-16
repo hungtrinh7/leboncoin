@@ -5,10 +5,14 @@ import SearchBar from "./components/UI/SearchBar";
 import Menu, { SubMenu } from "./components/UI/Menu";
 import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
+import Card from "./components/UI/Card";
 import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
+import { PRODUCTS } from "./data/products";
 
 export default function Home() {
+  const toys = PRODUCTS.filter((product) => product.category === "toys");
+
   return (
     <main>
       <nav className="flex flex-col items-center justify-between border-b border-gray-400">
@@ -92,6 +96,25 @@ export default function Home() {
             <TopCategory imgSrc={img.src} title={img.title} alt={img.alt} />
           ))}
           <div className="absolute right-0 top-0 w-10 h-full bg-gradient-to-l from-white"></div>
+        </div>
+      </section>
+      <section className="flex flex-col max-w-5xl mx-auto">
+        <h2 className="text-xl font-semibold mt-5">
+          En ce moment sur leboncoin
+        </h2>
+        <h3 className="text-lg font-semibold mt-5">Jeux & Jouets</h3>
+        <div className="flex relative gap-2 mt-4 overflow-x-auto pb-6">
+          {toys.map((toy) => (
+            <Card
+              src={toy.src}
+              alt={toy.alt}
+              title={toy.title}
+              price={toy.price}
+              delivery={toy.delivery}
+              address={toy.address}
+              dateCreated={toy.dateCreated}
+            />
+          ))}
         </div>
       </section>
     </main>
