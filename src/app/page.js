@@ -14,6 +14,8 @@ import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
 import Card from "./components/UI/Card";
 import CardBorder from "./components/UI/CardBorder";
+import ListCategories from "./components/UI/ListCategories";
+import ListRegions from "./components/UI/ListRegions";
 import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
 import { PRODUCTS } from "./data/products";
@@ -191,6 +193,60 @@ export default function Home() {
             />
           ))}
         </div>
+      </section>
+      <section className="flex flex-col max-w-5xl mx-auto mt-6">
+        <p className="text-xs">
+          Avec leboncoin, trouvez la bonne affaire sur le site référent de
+          petites annonces de particulier à particulier et de professionnels.
+          Avec des millions de petites annonces, trouvez la bonne occasion dans
+          nos catégories{" "}
+          <Link href={""} className="link-category">
+            voitures
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            immobilier
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            emploi
+          </Link>
+          ,
+          <Link href={""} className="link-category">
+            location de vacances
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            vêtements
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            meubles
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            bricolage
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            téléphonie
+          </Link>
+          ,{" "}
+          <Link href={""} className="link-category">
+            jeux vidéo
+          </Link>
+          , etc. Déposez une annonce gratuite en toute simplicité pour vendre,
+          rechercher, donner vos biens de seconde main ou promouvoir vos
+          services. Pour cet été, découvrez nos idées de destination avec notre
+          guide de vacances en France. Achetez en toute sécurité avec notre
+          système de paiement en ligne et de livraison pour les annonces
+          éligibles.
+        </p>
+      </section>
+      <section id="list-categories-section" className="bg-[#F4F9FE] py-2 mt-6">
+        <ListCategories />
+        <hr className="max-w-5xl mx-auto my-lg block border-t-sm border-outline" />
+        <ListRegions />
       </section>
     </main>
   );

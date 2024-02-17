@@ -122,7 +122,7 @@ export const PRODUCTS = [
     address: "Castelnau-Valence 30190",
     dateCreated: "aujourd'hui à 17:03",
     hasPriceDecreased: true,
-    isProfessional: true,
+    isProfessional: false,
     isUrgent: false,
   },
   {
@@ -137,7 +137,7 @@ export const PRODUCTS = [
     address: "Castelnau-Valence 30190",
     dateCreated: "aujourd'hui à 17:03",
     hasPriceDecreased: false,
-    isProfessional: true,
+    isProfessional: false,
     isUrgent: true,
   },
   {

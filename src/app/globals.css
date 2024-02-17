@@ -26,3 +26,21 @@ body {
     text-wrap: balance;
   }
 }
+
+.link-category {
+  font-weight: 700;
+  text-decoration: underline;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+#list-categories-section {
+  li {
+    margin: 10px 0;
+  }
+}
+
+hr {
+  border-top-color: #acbbc7;
+}
