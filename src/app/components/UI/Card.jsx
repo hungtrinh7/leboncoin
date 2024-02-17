@@ -4,7 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const Card = ({ src, alt, title, price, delivery, address, dateCreated }) => {
+const Card = ({
+  src,
+  alt,
+  title,
+  price,
+  delivery,
+  address,
+  dateCreated,
+  isProfessional,
+  isUrgent,
+}) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleClickFavorite = () => {
@@ -25,8 +35,24 @@ const Card = ({ src, alt, title, price, delivery, address, dateCreated }) => {
             <span className="text-xs ml-1">(9)</span>
           </span>
         </div>
-        <Image src={src} alt={alt} className="mt-2 rounded-lg" />
-        <p className="mt-2 text-base font-bold">{title}</p>
+        <div className="relative">
+          <Image src={src} alt={alt} className="mt-2 rounded-lg" />
+          {isUrgent && (
+            <div className="absolute top-0 left-0 bg-[#E9D6FA] text-[#360F57] rounded-full px-1 mt-2 ml-2 text-xs font-bold">
+              Urgent
+            </div>
+          )}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <p className="mt-2 text-base font-bold">{title}</p>
+          {isProfessional && (
+            <p className="border border-[#094171] rounded-full text-xs px-1 font-bold">
+              Pro
+            </p>
+          )}
+        </div>
+
         <p className="text-base font-bold">{price} €</p>
         <div className="flex">
           {delivery ? (

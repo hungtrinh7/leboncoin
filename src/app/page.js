@@ -125,6 +125,8 @@ export default function Home() {
               delivery={toy.delivery}
               address={toy.address}
               dateCreated={toy.dateCreated}
+              isProfessional={toy.isProfessional}
+              isUrgent={toy.isUrgent}
             />
           ))}
         </div>
@@ -166,6 +168,8 @@ export default function Home() {
               delivery={car.delivery}
               address={car.address}
               dateCreated={car.dateCreated}
+              isProfessional={car.isProfessional}
+              isUrgent={car.isUrgent}
             />
           ))}
         </div>
@@ -182,6 +186,8 @@ export default function Home() {
               delivery={camera.delivery}
               address={camera.address}
               dateCreated={camera.dateCreated}
+              isProfessional={camera.isProfessional}
+              isUrgent={camera.isUrgent}
             />
           ))}
         </div>
