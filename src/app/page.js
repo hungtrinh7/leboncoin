@@ -1,17 +1,29 @@
 import Image from "next/image";
 import Button from "./components/UI/Button";
-import { Bell, Heart, MessageSquareText, PlusSquare, User } from "lucide-react";
+import {
+  Bell,
+  Heart,
+  MessageSquareText,
+  MoveRight,
+  PlusSquare,
+  User,
+} from "lucide-react";
 import SearchBar from "./components/UI/SearchBar";
 import Menu, { SubMenu } from "./components/UI/Menu";
 import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
 import Card from "./components/UI/Card";
+import CardBorder from "./components/UI/CardBorder";
 import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
 import { PRODUCTS } from "./data/products";
+import { JOBS } from "./data/jobs";
+import Link from "next/link";
 
 export default function Home() {
   const toys = PRODUCTS.filter((product) => product.category === "toys");
+  const cars = PRODUCTS.filter((product) => product.category === "cars");
+  const cameras = PRODUCTS.filter((product) => product.category === "camera");
 
   return (
     <main>
@@ -113,6 +125,63 @@ export default function Home() {
               delivery={toy.delivery}
               address={toy.address}
               dateCreated={toy.dateCreated}
+            />
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col max-w-5xl mx-auto">
+        <div className="flex items-baseline justify-between">
+          <h3 className="text-lg font-semibold mt-5">Offre d'emploi</h3>
+          <Link href={""} className="flex items-center font-bold">
+            Voir plus d'annonces <MoveRight size={14} className="ml-2" />
+          </Link>
+        </div>
+        <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
+          {JOBS.map((job) => (
+            <CardBorder
+              src={job.src}
+              alt={job.alt}
+              title={job.title}
+              salary={job.salary}
+              salaryFrequency={job.salaryFrequency}
+              typeContract={job.typeContract}
+              isApplicationSimplified={job.isApplicationSimplified}
+              address={job.address}
+              dateCreated={job.dateCreated}
+              isNew={job.isNew}
+              nameRecruiter={job.nameRecruiter}
+            />
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col max-w-5xl mx-auto">
+        <h3 className="text-lg font-semibold mt-5">Voitures</h3>
+        <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
+          {cars.map((car) => (
+            <Card
+              src={car.src}
+              alt={car.alt}
+              title={car.title}
+              price={car.price}
+              delivery={car.delivery}
+              address={car.address}
+              dateCreated={car.dateCreated}
+            />
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col max-w-5xl mx-auto">
+        <h3 className="text-lg font-semibold mt-5">Appareils photo</h3>
+        <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
+          {cameras.map((camera) => (
+            <Card
+              src={camera.src}
+              alt={camera.alt}
+              title={camera.title}
+              price={camera.price}
+              delivery={camera.delivery}
+              address={camera.address}
+              dateCreated={camera.dateCreated}
             />
           ))}
         </div>
