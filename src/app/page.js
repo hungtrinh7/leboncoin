@@ -14,13 +14,14 @@ import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
 import Card from "./components/UI/Card";
 import CardBorder from "./components/UI/CardBorder";
-import ListCategories from "./components/UI/ListCategories";
-import ListRegions from "./components/UI/ListRegions";
+import ListCategories from "./components/ListCategories";
+import ListRegions from "./components/ListRegions";
 import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
 import { PRODUCTS } from "./data/products";
 import { JOBS } from "./data/jobs";
 import Link from "next/link";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const toys = PRODUCTS.filter((product) => product.category === "toys");
@@ -56,18 +57,18 @@ export default function Home() {
                 <SearchBar />
               </div>
             </div>
-            <div className="flex h-[60px]">
+            <div className="flex h-[60px] mt-3">
               <Menu name="Mes recherches">
-                <Bell color="#152233" size={24} />
+                <Bell color="#152233" size={20} />
               </Menu>
               <Menu name="Favoris">
-                <Heart color="#152233" size={24} />
+                <Heart color="#152233" size={20} />
               </Menu>
               <Menu name="Messages">
-                <MessageSquareText color="#152233" size={24} />
+                <MessageSquareText color="#152233" size={20} />
               </Menu>
               <Menu name="Se connecter">
-                <User color="#152233" size={24} />
+                <User color="#152233" size={20} />
               </Menu>
             </div>
           </div>
@@ -248,6 +249,7 @@ export default function Home() {
         <hr className="max-w-5xl mx-auto my-lg block border-t-sm border-outline" />
         <ListRegions />
       </section>
+      <Footer />
     </main>
   );
 }

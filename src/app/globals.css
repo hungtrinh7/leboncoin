@@ -44,3 +44,26 @@ body {
 hr {
   border-top-color: #acbbc7;
 }
+
+#top_footer li {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.link-others-services a:hover {
+  text-decoration: underline;
+}
+.link-others-services li {
+  display: inline-flex;
+  white-space: normal;
+}
+.link-others-services li::after {
+  white-space: pre;
+  content: " · ";
+}
+.link-others-services li:first::after {
+  content: none;
+}
+.link-others-services li:last::after {
+  content: none;
+}
