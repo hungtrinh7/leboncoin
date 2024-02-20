@@ -209,7 +209,7 @@ export const CATEGORIES = [
   {
     id: 3,
     name: "Location de vacances",
-    icon: <CloudSun size={36} />,
+    icon: <CloudSun size={16} />,
     list: [
       {
         id: 1,

@@ -16,7 +16,7 @@ const RecentSearch = ({ title, category, zone }) => {
         <Link href={""}>
           <div className="p-4 rounded-2xl border min-w-80 max-h-32 border-slate-100">
             <div className="flex items-start justify-between">
-              <div className="">
+              <div>
                 <p className="text-lg font-bold">{title}</p>
                 <p className="text-sm">{category}</p>
               </div>
