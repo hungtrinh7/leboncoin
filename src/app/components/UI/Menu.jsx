@@ -6,15 +6,11 @@ import { ExternalLink } from "lucide-react";
 
 const Menu = ({ name, children }) => {
   return (
-    <div className="flex items-center">
-      <a
-        className="flex flex-col items-center px-2 pb-1 gap-2 after:block after:content-[''] after:border-b-[3px] after:border-[#EC5A12] after:scale-x-0 after:transition-transform after:ease-in-out hover:after:scale-x-100"
-        href=""
-        rel="noopener noreferrer"
-      >
+    <div className="flex items-center right-menu">
+      <Link className="flex flex-col items-center px-2 pb-1 gap-2" href="">
         {children}
         <span className="text-xs">{name}</span>
-      </a>
+      </Link>
     </div>
   );
 };
@@ -60,9 +56,9 @@ export const SubMenu = () => {
           onMouseLeave={() => setIsSubMenuShown(false)}
           className="absolute flex top-0 mt-[50px] w-full max-h-[450px] border-2 rounded-b-lg drop-shadow-md bg-white z-10"
         >
-          <div className="bg-slate-50 p-7 shrink-0 grow-0 basis-[11rem] bg-neutral-container px-xl py-2xl">
+          <div className="bg-gray-100 p-7 shrink-0 grow-0 basis-[12rem] bg-neutral-container px-xl py-2xl">
             {currentCategory && (
-              <h2 className="flex items-center pl-3 border-l border-black font-bold">
+              <h2 className="flex items-center pl-2 border-l border-black font-bold">
                 {currentCategory.icon}
                 <span className="ml-2 text-base">{currentCategory.name}</span>
               </h2>

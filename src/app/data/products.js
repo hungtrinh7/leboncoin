@@ -124,6 +124,8 @@ export const PRODUCTS = [
     hasPriceDecreased: true,
     isProfessional: false,
     isUrgent: false,
+    description: "Description d'une voiture à vendre sur le site Leboncoin",
+    condition: "Très bon état",
   },
   {
     id: 8,

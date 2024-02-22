@@ -1,6 +1,9 @@
 import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,7 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={nunitoSans.className}>{children}</body>
+      <body className={nunitoSans.className}>
+        <div id="modal"></div>
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

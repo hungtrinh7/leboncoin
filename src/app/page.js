@@ -1,15 +1,6 @@
-import Image from "next/image";
 import Button from "./components/UI/Button";
-import {
-  Bell,
-  Heart,
-  MessageSquareText,
-  MoveRight,
-  PlusSquare,
-  User,
-} from "lucide-react";
-import SearchBar from "./components/UI/SearchBar";
-import Menu, { SubMenu } from "./components/UI/Menu";
+import { MoveRight, PlusSquare } from "lucide-react";
+
 import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
 import Card from "./components/UI/Card";
@@ -21,7 +12,6 @@ import { IMG_CATEGORIES } from "./data/imgCategories";
 import { PRODUCTS } from "./data/products";
 import { JOBS } from "./data/jobs";
 import Link from "next/link";
-import Footer from "./components/Footer";
 
 export default function Home() {
   const toys = PRODUCTS.filter((product) => product.category === "toys");
@@ -30,53 +20,6 @@ export default function Home() {
 
   return (
     <main>
-      <nav className="flex flex-col items-center justify-between border-b border-gray-400">
-        <div className="border-b-1">
-          <div className="flex h-[60px] z-10 max-w-5xl w-full items-center justify-between pt-2">
-            <div>
-              <a
-                className="pointer-events-none gap-2 p-8 lg:pointer-events-auto lg:p-0"
-                href=""
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/leboncoin.svg"
-                  alt="Logo"
-                  className=""
-                  width={140}
-                  height={60}
-                  priority
-                />
-              </a>
-            </div>
-            <div className="flex ml-2">
-              <Button name="Déposer une annonce">
-                <PlusSquare color="white" size={16} />
-              </Button>
-              <div className="flex ml-4">
-                <SearchBar />
-              </div>
-            </div>
-            <div className="flex h-[60px] mt-3">
-              <Menu name="Mes recherches">
-                <Bell color="#152233" size={20} />
-              </Menu>
-              <Menu name="Favoris">
-                <Heart color="#152233" size={20} />
-              </Menu>
-              <Menu name="Messages">
-                <MessageSquareText color="#152233" size={20} />
-              </Menu>
-              <Menu name="Se connecter">
-                <User color="#152233" size={20} />
-              </Menu>
-            </div>
-          </div>
-          <div className="mt-4">
-            <SubMenu />
-          </div>
-        </div>
-      </nav>
       <section className="flex flex-col items-center justify-between">
         <p className="text-2xl font-semibold mt-5">
           Des millions de petites annonces et autant d’occasions de se faire
@@ -249,7 +192,6 @@ export default function Home() {
         <hr className="max-w-5xl mx-auto my-lg block border-t-sm border-outline" />
         <ListRegions />
       </section>
-      <Footer />
     </main>
   );
 }

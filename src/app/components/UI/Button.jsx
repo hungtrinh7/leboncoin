@@ -1,14 +1,15 @@
 import Link from "next/link";
 import React from "react";
 
-const Button = ({ name, children }) => {
+const Button = ({ name, children, className, btnColor }) => {
+  const buttonColor = btnColor ? btnColor : "bg-[#EC5A12]";
+
   return (
-    <Link
-      href={"/"}
-      className="flex items-center max-w-[234px] bg-[#EC5A12] text-white text-base font-bold px-4 h-11 rounded-2xl hover:opacity-90"
+    <button
+      className={`flex items-center justify-center  text-white text-base font-bold px-4 h-11 rounded-2xl hover:opacity-90 text-center ${buttonColor} ${className}`}
     >
       {children} <span className="ml-2">{name}</span>
-    </Link>
+    </button>
   );
 };
 
