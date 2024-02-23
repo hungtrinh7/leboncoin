@@ -14,7 +14,7 @@ export const LinkWatchMore = () => {
       href={""}
       className="flex items-center text-base font-bold text-[#094171]"
     >
-      Voir plus d'annonces <MoveRight size={14} className="ml-2" />
+      Voir plus d&apos;annonces <MoveRight size={14} className="ml-2" />
     </Link>
   );
 };

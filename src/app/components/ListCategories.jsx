@@ -16,7 +16,7 @@ const ListCategories = () => {
           </li>
           <li>
             <Link href={""} className="hover:underline hover:opacity-50">
-              Offres d'emploi
+              Offres d&apos;emploi
             </Link>
           </li>
           <li>

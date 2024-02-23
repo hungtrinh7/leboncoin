@@ -28,7 +28,7 @@ export default function Home() {
         </p>
         <div className="flex max-w-5xl w-full items-center text-center justify-center gap-4 rounded-2xl bg-orange-100 py-4 mt-5">
           <p className="text-xl text-black font-bold">
-            C'est le moment de vendre
+            C&apos;est le moment de vendre
           </p>
           <Button name="Déposer une annonce">
             <PlusSquare color="white" size={16} />
@@ -40,6 +40,7 @@ export default function Home() {
         <div className="flex relative gap-2 mt-4 overflow-x-auto pb-6">
           {RECENTS_SEARCH.map((search) => (
             <RecentSearch
+              key={search.id}
               title={search.title}
               category={search.category}
               zone={search.zone}
@@ -52,7 +53,12 @@ export default function Home() {
         <h2 className="text-xl font-semibold mt-5">Top catégories</h2>
         <div className="flex relative gap-2 mt-4 overflow-x-auto pb-6">
           {IMG_CATEGORIES.map((img) => (
-            <TopCategory imgSrc={img.src} title={img.title} alt={img.alt} />
+            <TopCategory
+              key={img.id}
+              imgSrc={img.src}
+              title={img.title}
+              alt={img.alt}
+            />
           ))}
           <div className="absolute right-0 top-0 w-10 h-full bg-gradient-to-l from-white"></div>
         </div>
@@ -68,6 +74,7 @@ export default function Home() {
 
             return (
               <Card
+                key={toy.id}
                 productId={toy.id}
                 src={toy.src}
                 alt={toy.alt}
@@ -88,14 +95,15 @@ export default function Home() {
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
         <div className="flex items-baseline justify-between">
-          <h3 className="text-lg font-semibold mt-5">Offre d'emploi</h3>
+          <h3 className="text-lg font-semibold mt-5">Offre d&apos;emploi</h3>
           <Link href={""} className="flex items-center font-bold">
-            Voir plus d'annonces <MoveRight size={14} className="ml-2" />
+            Voir plus d&apos;annonces <MoveRight size={14} className="ml-2" />
           </Link>
         </div>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
           {JOBS.map((job) => (
             <CardBorder
+              key={job.id}
               src={job.src}
               alt={job.alt}
               title={job.title}
@@ -119,6 +127,7 @@ export default function Home() {
 
             return (
               <Card
+                key={car.id}
                 productId={car.id}
                 src={car.src}
                 alt={car.alt}
@@ -145,6 +154,7 @@ export default function Home() {
 
             return (
               <Card
+                key={camera.id}
                 productId={camera.id}
                 src={camera.src}
                 alt={camera.alt}

@@ -157,7 +157,7 @@ const Footer = () => {
             </li>
             <li>
               <Link href={""} className="hover:underline">
-                Dépôt d'offres d'emploi : tarif réservé aux TPE
+                Dépôt d&apos;offres d&apos;emploi : tarif réservé aux TPE
               </Link>
             </li>
           </ul>
@@ -208,7 +208,7 @@ const Footer = () => {
             </li>
           </ul>
           <p className="text-base uppercase font-bold">
-            vous êtes à l'étranger ?
+            vous êtes à l&apos;étranger ?
           </p>
           <hr className="my-lg block border-t-sm border-outline mt-2 mb-4" />
           <SelectCountries />
@@ -225,7 +225,7 @@ const Footer = () => {
             <Link href={""}>leboncoin Immobilier Neuf</Link>
           </li>
           <li>
-            <Link href={""}>L'argus</Link>
+            <Link href={""}>L&apos;argus</Link>
           </li>
           <li>
             <Link href={""}>Agriaffaires</Link>

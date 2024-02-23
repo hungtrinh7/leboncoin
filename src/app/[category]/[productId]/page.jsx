@@ -98,6 +98,7 @@ export default function Page({ params }) {
                     width={24}
                     height={24}
                     className="mx-1"
+                    alt="3x"
                   />{" "}
                   ou
                   <Image
@@ -105,6 +106,7 @@ export default function Page({ params }) {
                     width={24}
                     height={24}
                     className="mx-1"
+                    alt="4x"
                   />
                   <span className="font-bold">
                     à partir de {product.price / 4} €/mois
@@ -216,6 +218,7 @@ export default function Page({ params }) {
 
                 return (
                   <Card
+                    key={product.id}
                     productId={product.id}
                     src={product.src}
                     alt={product.alt}
@@ -238,7 +241,7 @@ export default function Page({ params }) {
           <div className="flex gap-6 my-6">
             <Link href={"#"} className="flex items-center font-bold">
               <Flag size={12} />
-              <span className="ml-2 underline">Signaler l'annonce</span>
+              <span className="ml-2 underline">Signaler l&apos;annonce</span>
             </Link>
             <Link href={"#"} className="flex items-center font-bold">
               <Info size={12} />
@@ -261,6 +264,7 @@ export default function Page({ params }) {
 
                 return (
                   <Card
+                    key={product.id}
                     productId={product.id}
                     src={product.src}
                     alt={product.alt}
