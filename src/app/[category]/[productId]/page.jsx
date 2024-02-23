@@ -183,20 +183,28 @@ export default function Page({ params }) {
               <LinkWatchMore />
             </div>
             <div className="flex relative gap-4 mt-4 overflow-x-auto">
-              {sellerProducts.map((product) => (
-                <Card
-                  key={product.id}
-                  src={product.src}
-                  alt={product.alt}
-                  title={product.title}
-                  price={product.price}
-                  delivery={product.delivery}
-                  address={product.address}
-                  dateCreated={product.dateCreated}
-                  isProfessional={product.isProfessional}
-                  isUrgent={product.isUrgent}
-                />
-              ))}
+              {sellerProducts.map((product) => {
+                const seller = USERS.find(
+                  (user) => user.id === product.sellerId
+                );
+
+                return (
+                  <Card
+                    productId={product.id}
+                    src={product.src}
+                    alt={product.alt}
+                    title={product.title}
+                    price={product.price}
+                    delivery={product.delivery}
+                    address={product.address}
+                    dateCreated={product.dateCreated}
+                    isProfessional={product.isProfessional}
+                    isUrgent={product.isUrgent}
+                    seller={seller}
+                    category={product.category}
+                  />
+                );
+              })}
             </div>
           </section>
           <hr className="my-lg block border-t-sm border-outline opacity-20" />
@@ -219,20 +227,28 @@ export default function Page({ params }) {
               <LinkWatchMore />
             </div>
             <div className="flex relative gap-4 mt-4 overflow-x-auto">
-              {PRODUCTS.slice(0, 5).map((product) => (
-                <Card
-                  key={product.id}
-                  src={product.src}
-                  alt={product.alt}
-                  title={product.title}
-                  price={product.price}
-                  delivery={product.delivery}
-                  address={product.address}
-                  dateCreated={product.dateCreated}
-                  isProfessional={product.isProfessional}
-                  isUrgent={product.isUrgent}
-                />
-              ))}
+              {PRODUCTS.slice(0, 5).map((product) => {
+                const seller = USERS.find(
+                  (user) => user.id === product.sellerId
+                );
+
+                return (
+                  <Card
+                    productId={product.id}
+                    src={product.src}
+                    alt={product.alt}
+                    title={product.title}
+                    price={product.price}
+                    delivery={product.delivery}
+                    address={product.address}
+                    dateCreated={product.dateCreated}
+                    isProfessional={product.isProfessional}
+                    isUrgent={product.isUrgent}
+                    seller={seller}
+                    category={product.category}
+                  />
+                );
+              })}
             </div>
           </section>
         </div>

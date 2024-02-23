@@ -11,6 +11,7 @@ import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
 import { PRODUCTS } from "./data/products";
 import { JOBS } from "./data/jobs";
+import { USERS } from "./data/users";
 import Link from "next/link";
 
 export default function Home() {
@@ -62,19 +63,26 @@ export default function Home() {
         </h2>
         <h3 className="text-lg font-semibold mt-5">Jeux & Jouets</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {toys.map((toy) => (
-            <Card
-              src={toy.src}
-              alt={toy.alt}
-              title={toy.title}
-              price={toy.price}
-              delivery={toy.delivery}
-              address={toy.address}
-              dateCreated={toy.dateCreated}
-              isProfessional={toy.isProfessional}
-              isUrgent={toy.isUrgent}
-            />
-          ))}
+          {toys.map((toy) => {
+            const seller = USERS.find((user) => user.id === toy.sellerId);
+
+            return (
+              <Card
+                productId={toy.id}
+                src={toy.src}
+                alt={toy.alt}
+                title={toy.title}
+                price={toy.price}
+                delivery={toy.delivery}
+                address={toy.address}
+                dateCreated={toy.dateCreated}
+                isProfessional={toy.isProfessional}
+                isUrgent={toy.isUrgent}
+                seller={seller}
+                category={toy.category}
+              />
+            );
+          })}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
@@ -105,37 +113,51 @@ export default function Home() {
       <section className="flex flex-col max-w-5xl mx-auto">
         <h3 className="text-lg font-semibold mt-5">Voitures</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {cars.map((car) => (
-            <Card
-              src={car.src}
-              alt={car.alt}
-              title={car.title}
-              price={car.price}
-              delivery={car.delivery}
-              address={car.address}
-              dateCreated={car.dateCreated}
-              isProfessional={car.isProfessional}
-              isUrgent={car.isUrgent}
-            />
-          ))}
+          {cars.map((car) => {
+            const seller = USERS.find((user) => user.id === car.sellerId);
+
+            return (
+              <Card
+                productId={car.id}
+                src={car.src}
+                alt={car.alt}
+                title={car.title}
+                price={car.price}
+                delivery={car.delivery}
+                address={car.address}
+                dateCreated={car.dateCreated}
+                isProfessional={car.isProfessional}
+                isUrgent={car.isUrgent}
+                seller={seller}
+                category={car.category}
+              />
+            );
+          })}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
         <h3 className="text-lg font-semibold mt-5">Appareils photo</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {cameras.map((camera) => (
-            <Card
-              src={camera.src}
-              alt={camera.alt}
-              title={camera.title}
-              price={camera.price}
-              delivery={camera.delivery}
-              address={camera.address}
-              dateCreated={camera.dateCreated}
-              isProfessional={camera.isProfessional}
-              isUrgent={camera.isUrgent}
-            />
-          ))}
+          {cameras.map((camera) => {
+            const seller = USERS.find((user) => user.id === camera.sellerId);
+
+            return (
+              <Card
+                productId={camera.id}
+                src={camera.src}
+                alt={camera.alt}
+                title={camera.title}
+                price={camera.price}
+                delivery={camera.delivery}
+                address={camera.address}
+                dateCreated={camera.dateCreated}
+                isProfessional={camera.isProfessional}
+                isUrgent={camera.isUrgent}
+                seller={seller}
+                category={camera.category}
+              />
+            );
+          })}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto mt-6">
