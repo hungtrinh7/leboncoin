@@ -7,8 +7,13 @@ import {
   UserRound,
 } from "lucide-react";
 import Link from "next/link";
+import { PRODUCTS } from "../data/products";
 
-const ProfilCard = ({ memberSince, hasArrow }) => {
+const ProfilCard = ({ seller, memberSince, hasArrow }) => {
+  const sellerProducts = PRODUCTS.filter(
+    (product) => product.sellerId === seller.id
+  );
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -19,17 +24,17 @@ const ProfilCard = ({ memberSince, hasArrow }) => {
           <div className="ml-3">
             <p className="font-bold text-lg">
               <Link href={"#"} className="hover:underline">
-                Sam
+                {seller.username}
               </Link>
             </p>
-            <p className="text-base">12 annonces</p>
+            <p className="text-base">{sellerProducts.length} annonces</p>
             <div className="flex gap-1">
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
-              <span className="font-bold">(28)</span>
+              <span className="font-bold">({seller.numberReviews})</span>
             </div>
           </div>
         </div>

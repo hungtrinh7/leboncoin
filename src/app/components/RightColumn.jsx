@@ -4,10 +4,10 @@ import { LockKeyhole } from "lucide-react";
 import Image from "next/image";
 import ProfilCard from "./ProfilCard";
 
-const RightColumn = () => {
+const RightColumn = ({ seller }) => {
   return (
     <div className="w-2/5 ml-4 p-6 border shadow-lg h-fit">
-      <ProfilCard hasArrow={true} />
+      <ProfilCard seller={seller} hasArrow={true} />
       <hr className="my-lg block border-t-sm border-outline my-4" />
       <Button name="Réserver" className="w-full" />
       <Button name="Message" className="w-full mt-2" btnColor="bg-[#094171]" />
