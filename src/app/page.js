@@ -80,6 +80,7 @@ export default function Home() {
                 isUrgent={toy.isUrgent}
                 seller={seller}
                 category={toy.category}
+                hasPriceDecreased={toy.hasPriceDecreased}
               />
             );
           })}
@@ -130,6 +131,7 @@ export default function Home() {
                 isUrgent={car.isUrgent}
                 seller={seller}
                 category={car.category}
+                hasPriceDecreased={car.hasPriceDecreased}
               />
             );
           })}
@@ -155,6 +157,7 @@ export default function Home() {
                 isUrgent={camera.isUrgent}
                 seller={seller}
                 category={camera.category}
+                hasPriceDecreased={camera.hasPriceDecreased}
               />
             );
           })}

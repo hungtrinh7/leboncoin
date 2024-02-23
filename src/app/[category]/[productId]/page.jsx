@@ -46,8 +46,10 @@ export default function Page({ params }) {
 
   return (
     <>
-      {showModalHowItWorks && <ModalHowItWorks />}
-      {showModalMore && <ModalMore />}
+      {showModalHowItWorks && (
+        <ModalHowItWorks onShowModal={setShowModalHowItWorks} />
+      )}
+      {showModalMore && <ModalMore onShowModal={setShowModalMore} />}
       <Breadcrumb product={product} />
       <div className="flex max-w-5xl mx-auto mt-6 mb-4">
         <div className="w-3/5">
@@ -87,6 +89,30 @@ export default function Page({ params }) {
           <div className="mt-6">
             <h1 className="text-2xl font-bold">{product.title}</h1>
             <p className="text-lg font-bold my-4">{product.price} €</p>
+            {product.price > 1000 && (
+              <div className="flex items-center mb-4">
+                <p className="flex items-center">
+                  Payez en{" "}
+                  <Image
+                    src={"/3x.avif"}
+                    width={24}
+                    height={24}
+                    className="mx-1"
+                  />{" "}
+                  ou
+                  <Image
+                    src={"/4x.avif"}
+                    width={24}
+                    height={24}
+                    className="mx-1"
+                  />
+                  <span className="font-bold">
+                    à partir de {product.price / 4} €/mois
+                  </span>
+                </p>
+                <Info size={16} className="ml-1" />
+              </div>
+            )}
             <p className="text-caption">11/02/2024 à 17:31</p>
           </div>
           <hr className="my-lg block border-t-sm border-outline my-6 opacity-20" />
@@ -202,6 +228,7 @@ export default function Page({ params }) {
                     isUrgent={product.isUrgent}
                     seller={seller}
                     category={product.category}
+                    hasPriceDecreased={product.hasPriceDecreased}
                   />
                 );
               })}
@@ -246,6 +273,7 @@ export default function Page({ params }) {
                     isUrgent={product.isUrgent}
                     seller={seller}
                     category={product.category}
+                    hasPriceDecreased={product.hasPriceDecreased}
                   />
                 );
               })}

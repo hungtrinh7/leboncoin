@@ -3,9 +3,9 @@ import Modal from "../components/UI/Modal";
 import { Euro, MessageSquareText, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
-const ModalMore = () => {
+const ModalMore = ({ onShowModal }) => {
   return (
-    <Modal onShowModal={setShowModalMore}>
+    <Modal onShowModal={onShowModal}>
       <Image
         src={"/protection-leboncoin.svg"}
         width={592}

@@ -13,8 +13,7 @@ const Nav = () => {
           <div>
             <a
               className="pointer-events-none gap-2 p-8 lg:pointer-events-auto lg:p-0"
-              href=""
-              rel="noopener noreferrer"
+              href="/"
             >
               <Image
                 src="/leboncoin.svg"

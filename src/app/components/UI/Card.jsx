@@ -1,5 +1,5 @@
 "use client";
-import { Heart, Star } from "lucide-react";
+import { Heart, Star, TrendingDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -17,6 +17,7 @@ const Card = ({
   isUrgent,
   seller,
   category,
+  hasPriceDecreased,
 }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
@@ -62,7 +63,15 @@ const Card = ({
               )}
             </div>
 
-            <p className="text-base font-bold">{price} €</p>
+            <p
+              className={`text-base font-bold ${
+                hasPriceDecreased ? "text-[#4E9850]" : undefined
+              }`}
+            >
+              <span className="flex items-center">
+                {price} € {hasPriceDecreased && <TrendingDown size={16} />}
+              </span>
+            </p>
             <div className="flex">
               {delivery ? (
                 <p className="text-xs bg-[#E6F1FD] px-2 font-bold rounded-2xl">

@@ -2,9 +2,9 @@ import React from "react";
 import Modal from "../components/UI/Modal";
 import { Calendar, ShieldCheck, Smile } from "lucide-react";
 
-const ModalHowItWorks = () => {
+const ModalHowItWorks = ({ onShowModal }) => {
   return (
-    <Modal onShowModal={setShowModalHowItWorks}>
+    <Modal onShowModal={onShowModal}>
       <p className="text-[#094171] font-bold text-base mt-4">
         Les étapes de la remise en main propre avec paiement sécurisé
       </p>
