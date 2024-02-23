@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ product }) => {
   return (
     <nav
       id="breadcrumb"
@@ -9,22 +9,22 @@ const Breadcrumb = () => {
     >
       <ol className="flex flex-wrap text-gray-500">
         <li>
-          <Link href={"#"}>Accueil</Link>
+          <Link href={"/"}>Accueil</Link>
         </li>
         <li>
-          <Link href={"#"}>Catégorie</Link>
+          <Link href={"#"}>{product.categoryLabel}</Link>
         </li>
         <li>
-          <Link href={"#"}>Région</Link>
+          <Link href={"#"}>{product.region}</Link>
         </li>
         <li>
-          <Link href={"#"}>Département</Link>
+          <Link href={"#"}>{product.department}</Link>
         </li>
         <li>
-          <Link href={"#"}>Ville cp</Link>
+          <Link href={"#"}>{product.address}</Link>
         </li>
         <li>
-          <span className="font-bold text-black">Nom produit</span>
+          <span className="font-bold text-black">{product.title}</span>
         </li>
       </ol>
     </nav>

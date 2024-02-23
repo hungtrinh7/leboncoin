@@ -48,7 +48,7 @@ export default function Page({ params }) {
     <>
       {showModalHowItWorks && <ModalHowItWorks />}
       {showModalMore && <ModalMore />}
-      <Breadcrumb />
+      <Breadcrumb product={product} />
       <div className="flex max-w-5xl mx-auto mt-6 mb-4">
         <div className="w-3/5">
           <div className="flex justify-between relative gap-4">
