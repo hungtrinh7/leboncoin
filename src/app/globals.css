@@ -100,3 +100,10 @@ hr {
 .right-menu::after:hover {
   transform: scaleX(1);
 }
+
+.text-subhead {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
