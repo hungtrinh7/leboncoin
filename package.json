@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.6",
     "country-flag-icons": "^1.5.9",
     "lucide-react": "^0.323.0",
     "mini-css-extract-plugin": "^2.8.0",

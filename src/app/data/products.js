@@ -120,6 +120,7 @@ export const PRODUCTS = [
     price: 6000,
     delivery: true,
     address: "Castelnau-Valence 30190",
+    addressGoogle: "Castelnau-Valence",
     dateCreated: "aujourd'hui à 17:03",
     hasPriceDecreased: true,
     isProfessional: false,

@@ -20,6 +20,7 @@ import { PRODUCTS } from "../../data/products";
 import { useState } from "react";
 import Modal from "../../components/UI/Modal";
 import ProfilCard from "../../components/ProfilCard";
+import Map from "../../components/Map";
 
 export default function Page({ params }) {
   const product = PRODUCTS.find(
@@ -265,10 +266,11 @@ export default function Page({ params }) {
               Comment ça marche ?
             </p>
             <hr className="my-lg block border-t-sm border-outline my-6 opacity-20" />
-            <div className="flex items-center">
+            <div className="flex items-center mb-4">
               <MapPin size={16} />
               <h2 className="text-headline-2 ml-2">{product.address}</h2>
             </div>
+            <Map address={product.addressGoogle} height={"260px"} />
           </div>
           <hr className="my-lg block border-t-sm border-outline my-6 opacity-20" />
           <ProfilCard memberSince={true} />
