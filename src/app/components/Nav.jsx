@@ -37,7 +37,7 @@ const Nav = () => {
             <Menu name="Mes recherches">
               <Bell color="#152233" size={20} />
             </Menu>
-            <Menu name="Favoris">
+            <Menu name="Favoris" url={"/mes-annonces"}>
               <Heart color="#152233" size={20} />
             </Menu>
             <Menu name="Messages">

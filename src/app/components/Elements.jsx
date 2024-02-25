@@ -18,3 +18,17 @@ export const LinkWatchMore = () => {
     </Link>
   );
 };
+
+export const TagDeliveryPossible = ({ product }) => {
+  return (
+    <div className="flex">
+      {product.delivery ? (
+        <p className="text-xs bg-[#E6F1FD] px-2 font-bold rounded-2xl">
+          Livraison possible
+        </p>
+      ) : (
+        <p className="h-[16px]"></p>
+      )}
+    </div>
+  );
+};

@@ -3,6 +3,7 @@ import { Heart, Star, TrendingDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { TagDeliveryPossible } from "../Elements";
 
 const Card = ({
   productId,
@@ -10,7 +11,6 @@ const Card = ({
   alt,
   title,
   price,
-  delivery,
   address,
   dateCreated,
   isProfessional,
@@ -72,15 +72,7 @@ const Card = ({
                 {price} € {hasPriceDecreased && <TrendingDown size={16} />}
               </span>
             </p>
-            <div className="flex">
-              {delivery ? (
-                <p className="text-xs bg-[#E6F1FD] px-2 font-bold rounded-2xl">
-                  Livraison possible
-                </p>
-              ) : (
-                <p className="h-[16px]"></p>
-              )}
-            </div>
+            <TagDeliveryPossible />
             <div className="flex h-8 items-end justify-between mt-6">
               <div>
                 <p className="mt-4 text-xs text-gray-500">{address}</p>

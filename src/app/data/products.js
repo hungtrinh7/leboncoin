@@ -40,6 +40,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: true,
   },
   {
     id: 2,
@@ -61,6 +62,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 3,
@@ -82,6 +84,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: true,
   },
   {
     id: 4,
@@ -103,6 +106,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 5,
@@ -124,6 +128,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 6,
@@ -145,6 +150,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 7,
@@ -166,6 +172,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "Description d'une voiture à vendre sur le site Leboncoin",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 8,
@@ -187,6 +194,7 @@ export const PRODUCTS = [
     isUrgent: true,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 9,
@@ -208,6 +216,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 10,
@@ -229,6 +238,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: true,
   },
   {
     id: 11,
@@ -250,6 +260,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 12,
@@ -271,6 +282,7 @@ export const PRODUCTS = [
     isUrgent: true,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 13,
@@ -292,6 +304,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 14,
@@ -313,6 +326,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 15,
@@ -334,6 +348,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: true,
   },
   {
     id: 16,
@@ -355,6 +370,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 17,
@@ -376,6 +392,7 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
   {
     id: 18,
@@ -397,5 +414,6 @@ export const PRODUCTS = [
     isUrgent: false,
     description: "lorem ipsum",
     condition: "Très bon état",
+    isFavorite: false,
   },
 ];

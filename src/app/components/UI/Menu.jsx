@@ -4,10 +4,10 @@ import { CATEGORIES } from "../../data/categories";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 
-const Menu = ({ name, children }) => {
+const Menu = ({ name, children, url = "" }) => {
   return (
     <div className="flex items-center right-menu">
-      <Link className="flex flex-col items-center px-2 pb-1 gap-2" href="">
+      <Link className="flex flex-col items-center px-2 pb-1 gap-2" href={url}>
         {children}
         <span className="text-xs">{name}</span>
       </Link>
