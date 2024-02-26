@@ -5,20 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { TagDeliveryPossible } from "../Elements";
 
-const Card = ({
-  productId,
-  src,
-  alt,
-  title,
-  price,
-  address,
-  dateCreated,
-  isProfessional,
-  isUrgent,
-  seller,
-  category,
-  hasPriceDecreased,
-}) => {
+const Card = ({ seller, product }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const handleClickFavorite = () => {
@@ -28,7 +15,7 @@ const Card = ({
   return (
     <>
       {seller && (
-        <Link href={`/${category}/${productId}`}>
+        <Link href={`/${product.category}/${product.id}`}>
           <div className="w-[190px]">
             <div className="flex">
               <span className="flex h-5 w-5 rounded-full bg-green-700 text-xs items-center justify-center text-white">
@@ -46,8 +33,12 @@ const Card = ({
               )}
             </div>
             <div className="relative">
-              <Image src={src} alt={alt} className="mt-2 rounded-lg" />
-              {isUrgent && (
+              <Image
+                src={product.src}
+                alt={product.alt}
+                className="mt-2 rounded-lg"
+              />
+              {product.isUrgent && (
                 <div className="absolute top-0 left-0 bg-[#E9D6FA] text-[#360F57] rounded-full px-1 mt-2 ml-2 text-xs font-bold">
                   Urgent
                 </div>
@@ -55,8 +46,8 @@ const Card = ({
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="mt-2 text-base font-bold">{title}</p>
-              {isProfessional && (
+              <p className="mt-2 text-base font-bold">{product.title}</p>
+              {product.isProfessional && (
                 <p className="border border-[#094171] rounded-full text-xs px-1 font-bold">
                   Pro
                 </p>
@@ -65,18 +56,19 @@ const Card = ({
 
             <p
               className={`text-base font-bold ${
-                hasPriceDecreased ? "text-[#4E9850]" : undefined
+                product.hasPriceDecreased ? "text-[#4E9850]" : undefined
               }`}
             >
               <span className="flex items-center">
-                {price} € {hasPriceDecreased && <TrendingDown size={16} />}
+                {product.price} €{" "}
+                {product.hasPriceDecreased && <TrendingDown size={16} />}
               </span>
             </p>
-            <TagDeliveryPossible />
+            <TagDeliveryPossible product={product} />
             <div className="flex h-8 items-end justify-between mt-6">
               <div>
-                <p className="mt-4 text-xs text-gray-500">{address}</p>
-                <p className="text-xs text-gray-500">{dateCreated}</p>
+                <p className="mt-4 text-xs text-gray-500">{product.address}</p>
+                <p className="text-xs text-gray-500">{product.dateCreated}</p>
               </div>
               <div>
                 <Heart

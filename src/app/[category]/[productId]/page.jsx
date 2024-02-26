@@ -217,22 +217,7 @@ export default function Page({ params }) {
                 );
 
                 return (
-                  <Card
-                    key={product.id}
-                    productId={product.id}
-                    src={product.src}
-                    alt={product.alt}
-                    title={product.title}
-                    price={product.price}
-                    delivery={product.delivery}
-                    address={product.address}
-                    dateCreated={product.dateCreated}
-                    isProfessional={product.isProfessional}
-                    isUrgent={product.isUrgent}
-                    seller={seller}
-                    category={product.category}
-                    hasPriceDecreased={product.hasPriceDecreased}
-                  />
+                  <Card key={product.id} seller={seller} product={product} />
                 );
               })}
             </div>
@@ -263,22 +248,7 @@ export default function Page({ params }) {
                 );
 
                 return (
-                  <Card
-                    key={product.id}
-                    productId={product.id}
-                    src={product.src}
-                    alt={product.alt}
-                    title={product.title}
-                    price={product.price}
-                    delivery={product.delivery}
-                    address={product.address}
-                    dateCreated={product.dateCreated}
-                    isProfessional={product.isProfessional}
-                    isUrgent={product.isUrgent}
-                    seller={seller}
-                    category={product.category}
-                    hasPriceDecreased={product.hasPriceDecreased}
-                  />
+                  <Card key={product.id} seller={seller} product={product} />
                 );
               })}
             </div>

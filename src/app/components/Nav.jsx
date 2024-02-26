@@ -26,7 +26,7 @@ const Nav = () => {
             </a>
           </div>
           <div className="flex ml-2">
-            <Button name="Déposer une annonce">
+            <Button name="Déposer une annonce" url="/deposer-une-annonce">
               <PlusSquare color="white" size={16} />
             </Button>
             <div className="flex ml-4">

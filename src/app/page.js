@@ -30,7 +30,7 @@ export default function Home() {
           <p className="text-xl text-black font-bold">
             C&apos;est le moment de vendre
           </p>
-          <Button name="Déposer une annonce">
+          <Button name="Déposer une annonce" url="/deposer-une-annonce">
             <PlusSquare color="white" size={16} />
           </Button>
         </div>
@@ -72,24 +72,7 @@ export default function Home() {
           {toys.map((toy) => {
             const seller = USERS.find((user) => user.id === toy.sellerId);
 
-            return (
-              <Card
-                key={toy.id}
-                productId={toy.id}
-                src={toy.src}
-                alt={toy.alt}
-                title={toy.title}
-                price={toy.price}
-                delivery={toy.delivery}
-                address={toy.address}
-                dateCreated={toy.dateCreated}
-                isProfessional={toy.isProfessional}
-                isUrgent={toy.isUrgent}
-                seller={seller}
-                category={toy.category}
-                hasPriceDecreased={toy.hasPriceDecreased}
-              />
-            );
+            return <Card key={toy.id} seller={seller} product={toy} />;
           })}
         </div>
       </section>
@@ -125,24 +108,7 @@ export default function Home() {
           {cars.map((car) => {
             const seller = USERS.find((user) => user.id === car.sellerId);
 
-            return (
-              <Card
-                key={car.id}
-                productId={car.id}
-                src={car.src}
-                alt={car.alt}
-                title={car.title}
-                price={car.price}
-                delivery={car.delivery}
-                address={car.address}
-                dateCreated={car.dateCreated}
-                isProfessional={car.isProfessional}
-                isUrgent={car.isUrgent}
-                seller={seller}
-                category={car.category}
-                hasPriceDecreased={car.hasPriceDecreased}
-              />
-            );
+            return <Card key={car.id} seller={seller} product={car} />;
           })}
         </div>
       </section>
@@ -152,24 +118,7 @@ export default function Home() {
           {cameras.map((camera) => {
             const seller = USERS.find((user) => user.id === camera.sellerId);
 
-            return (
-              <Card
-                key={camera.id}
-                productId={camera.id}
-                src={camera.src}
-                alt={camera.alt}
-                title={camera.title}
-                price={camera.price}
-                delivery={camera.delivery}
-                address={camera.address}
-                dateCreated={camera.dateCreated}
-                isProfessional={camera.isProfessional}
-                isUrgent={camera.isUrgent}
-                seller={seller}
-                category={camera.category}
-                hasPriceDecreased={camera.hasPriceDecreased}
-              />
-            );
+            return <Card key={camera.id} seller={seller} product={camera} />;
           })}
         </div>
       </section>
