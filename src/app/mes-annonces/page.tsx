@@ -45,7 +45,7 @@ export default function Page() {
             <div className="flex flex-col gap-2">
               {myProducts.length > 0 ? (
                 myProducts.map((product) => (
-                  <CardPostFullWidth product={product} />
+                  <CardPostFullWidth key={product.id} product={product} />
                 ))
               ) : (
                 <p className="font-bold">
