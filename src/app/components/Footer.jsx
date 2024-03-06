@@ -48,20 +48,26 @@ const Footer = () => {
             <Image
               src="/download_on_app_store.avif"
               alt="Download on app store"
-              width={120}
-              height={35}
+              width="0"
+              height="0"
+              sizes="100vw"
+              style={{ width: "120px", height: "auto" }}
             />
             <Image
               src="/download_on_google_play.avif"
               alt="Download on app store"
-              width={120}
-              height={35}
+              width="0"
+              height="0"
+              sizes="100vw"
+              style={{ width: "120px", height: "auto" }}
             />
             <Image
               src="/download_on_app_gallery.avif"
               alt="Download on app store"
-              width={120}
-              height={35}
+              width="0"
+              height="0"
+              sizes="100vw"
+              style={{ width: "120px", height: "auto" }}
             />
           </div>
         </div>
@@ -258,40 +264,50 @@ const Footer = () => {
               <span className="bg-[#00B67A] h-[15px] w-[15px]">
                 <Image
                   src={"/star-trustpilot.svg"}
-                  width={15}
-                  height={15}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  style={{ width: "15px", height: "auto" }}
                   alt="star-trustpilot 1"
                 />
               </span>
               <span className="bg-[#00B67A] h-[15px] w-[15px]">
                 <Image
                   src={"/star-trustpilot.svg"}
-                  width={15}
-                  height={15}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  style={{ width: "15px", height: "auto" }}
                   alt="star-truspilot 2"
                 />
               </span>
               <span className="bg-[#00B67A] h-[15px] w-[15px]">
                 <Image
                   src={"/star-trustpilot.svg"}
-                  width={15}
-                  height={15}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  style={{ width: "15px", height: "auto" }}
                   alt="star-truspilot 3"
                 />
               </span>
               <span className="bg-[#00B67A] h-[15px] w-[15px]">
                 <Image
                   src={"/star-trustpilot.svg"}
-                  width={15}
-                  height={15}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  style={{ width: "15px", height: "auto" }}
                   alt="star-truspilot 4"
                 />
               </span>
               <span className="bg-[#00B67A] h-[15px] w-[15px]">
                 <Image
                   src={"/star-trustpilot.svg"}
-                  width={15}
-                  height={15}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  style={{ width: "15px", height: "auto" }}
                   alt="star-truspilot 5"
                 />
               </span>
@@ -302,8 +318,10 @@ const Footer = () => {
             <span>
               <Image
                 src={"/logo-trustpilot.svg"}
-                height={18}
-                width={18}
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{ width: "18px", height: "auto" }}
                 alt="logo truspilot"
               />
             </span>

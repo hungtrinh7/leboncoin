@@ -19,8 +19,10 @@ const Nav = () => {
                 src="/leboncoin.svg"
                 alt="Logo"
                 className=""
-                width={140}
-                height={60}
+                width="0"
+                height="0"
+                sizes="100vw"
+                style={{ width: "140px", height: "auto" }}
                 priority
               />
             </a>
