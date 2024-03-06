@@ -6,6 +6,7 @@ import supabase from "../config/supabaseClient";
 import { useFormState, useFormStatus } from "react-dom";
 import { createProduct } from "../actions";
 import { useRouter } from "next/navigation";
+import { Category } from "../../common/types";
 
 const initialState = {
   message: null,
@@ -36,13 +37,14 @@ const DeleteButton = () => {
 export default function Page() {
   const [hasTitleInput, setHasTitleInput] = useState<boolean>(true);
   const [btnClickTitleInput, setBtnClickTitleInput] = useState<boolean>(false);
-  const [fetchErrorGetCategories, setFetchErrorGetCategories] = useState(null);
-  const [categories, setCategories] = useState(null);
+  const [fetchErrorGetCategories, setFetchErrorGetCategories] =
+    useState<string>(null);
+  const [categories, setCategories] = useState<Category[]>(null);
   const [state, formAction] = useFormState(createProduct, initialState);
   const router = useRouter();
 
-  const handleChangeTitleInput = (e) => {
-    if (e.target.value !== "" && e.target.value.length > 2) {
+  const handleChangeTitleInput = (value: string) => {
+    if (value !== "" && value.length > 2) {
       setHasTitleInput(false);
     } else {
       setHasTitleInput(true);
@@ -57,7 +59,7 @@ export default function Page() {
         setCategories(null);
       }
       if (data) {
-        setFetchErrorGetCategories(null);
+        setFetchErrorGetCategories("");
         setCategories(data);
       }
     };
@@ -93,7 +95,7 @@ export default function Page() {
                   type="text"
                   name="name"
                   className="border rounded-2xl p-2"
-                  onChange={handleChangeTitleInput}
+                  onChange={(e) => handleChangeTitleInput(e.target.value)}
                 />
                 <button
                   type="button"

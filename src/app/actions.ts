@@ -17,7 +17,7 @@ export async function createProduct(
     user_id: z.number(),
     is_deliverable: z.boolean(),
     address_city: z.string(),
-    address_postal_code: z.string(),
+    address_postal_code: z.string().length(5),
     address_department: z.string(),
     address_region: z.string(),
     description: z.string(),
