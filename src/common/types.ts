@@ -2,26 +2,28 @@ export interface User {
   id: number;
   createdAt: string;
   username: string;
-  numberReviews: number;
+  number_reviews: number;
   rating: number;
 }
 
 export interface Product {
   id: number;
-  createdAt: string;
-  urlImg: string;
+  created_at: string;
+  url_img: string;
   name: string;
   price: number;
+  category_id: number;
   category: Category;
-  user: User;
-  isDeliverable: boolean;
-  addressCity: string;
-  addressPostalCode: string;
-  addressDepartment: string;
-  addressRegion: string;
-  hasPriceDecreased: boolean;
-  isProfessional: boolean;
-  isUrgent: boolean;
+  users: User;
+  user_id: number;
+  is_deliverable: boolean;
+  address_city: string;
+  address_postal_code: string;
+  address_department: string;
+  address_region: string;
+  has_price_decreased: boolean;
+  is_professional: boolean;
+  is_urgent: boolean;
   description: string;
   condition: string;
 }

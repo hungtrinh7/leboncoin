@@ -6,7 +6,9 @@ import React, { useState } from "react";
 import { TagDeliveryPossible } from "../Elements";
 
 const Card = ({ seller, product }) => {
-  const [isFavorited, setIsFavorited] = useState(false);
+  const [isFavorited, setIsFavorited] = useState<boolean>(false);
+
+  const dateCreated = new Date(product.created_at);
 
   const handleClickFavorite = () => {
     setIsFavorited(!isFavorited);
@@ -16,29 +18,33 @@ const Card = ({ seller, product }) => {
     <>
       {seller && (
         <Link href={`/${product.category}/${product.id}`}>
-          <div className="w-[190px]">
+          <div className="w-[150px] h-[386px]">
             <div className="flex">
               <span className="flex h-5 w-5 rounded-full bg-green-700 text-xs items-center justify-center text-white">
                 {seller.username.slice(0, 1)}
               </span>
               <span className="ml-1 text-sm font-bold">{seller.username}</span>
-              {seller.numberReviews > 0 && (
+              {seller.number_reviews > 0 && (
                 <span className="flex items-center ml-1">
                   <Star size={14} fill="#B84A14" color="#B84A14" />
                   <span className="text-[13px] font-bold ml-1">
-                    {seller.review}
+                    {seller.rating}
                   </span>
-                  <span className="text-xs ml-1">({seller.numberReviews})</span>
+                  <span className="text-xs ml-1">
+                    ({seller.number_reviews})
+                  </span>
                 </span>
               )}
             </div>
             <div className="relative">
               <Image
-                src={product.src}
-                alt={product.alt}
+                src={`/products/${product.url_img}`}
+                alt={product.name}
                 className="mt-2 rounded-lg"
+                width={150}
+                height={187}
               />
-              {product.isUrgent && (
+              {product.is_urgent && (
                 <div className="absolute top-0 left-0 bg-[#E9D6FA] text-[#360F57] rounded-full px-1 mt-2 ml-2 text-xs font-bold">
                   Urgent
                 </div>
@@ -46,8 +52,8 @@ const Card = ({ seller, product }) => {
             </div>
 
             <div className="flex items-center justify-between">
-              <p className="mt-2 text-base font-bold">{product.title}</p>
-              {product.isProfessional && (
+              <p className="mt-2 text-base font-bold">{product.name}</p>
+              {product.is_professional && (
                 <p className="border border-[#094171] rounded-full text-xs px-1 font-bold">
                   Pro
                 </p>
@@ -56,19 +62,24 @@ const Card = ({ seller, product }) => {
 
             <p
               className={`text-base font-bold ${
-                product.hasPriceDecreased ? "text-[#4E9850]" : undefined
+                product.has_price_decreased ? "text-[#4E9850]" : undefined
               }`}
             >
               <span className="flex items-center">
-                {product.price} €{" "}
-                {product.hasPriceDecreased && <TrendingDown size={16} />}
+                {product.price} €
+                {product.has_price_decreased && <TrendingDown size={16} />}
               </span>
             </p>
             <TagDeliveryPossible product={product} />
             <div className="flex h-8 items-end justify-between mt-6">
               <div>
-                <p className="mt-4 text-xs text-gray-500">{product.address}</p>
-                <p className="text-xs text-gray-500">{product.dateCreated}</p>
+                <p className="mt-4 text-xs text-gray-500">
+                  {product.address_city} {product.address_postal_code}
+                </p>
+                <p className="text-xs text-gray-500">
+                  {dateCreated.getDate()}/{dateCreated.getMonth()}/
+                  {dateCreated.getFullYear()}
+                </p>
               </div>
               <div>
                 <Heart

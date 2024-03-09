@@ -3,7 +3,7 @@ import React from "react";
 
 const Button = ({
   name,
-  children,
+  children = null,
   className = "",
   btnColor = "bg-[#EC5A12]",
   url,

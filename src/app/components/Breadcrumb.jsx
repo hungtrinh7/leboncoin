@@ -12,19 +12,21 @@ const Breadcrumb = ({ product }) => {
           <Link href={"/"}>Accueil</Link>
         </li>
         <li>
-          <Link href={"#"}>{product.categoryLabel}</Link>
+          <Link href={"#"}>{product.categories.name}</Link>
         </li>
         <li>
-          <Link href={"#"}>{product.region}</Link>
+          <Link href={"#"}>{product.address_region}</Link>
         </li>
         <li>
-          <Link href={"#"}>{product.department}</Link>
+          <Link href={"#"}>{product.address_department}</Link>
         </li>
         <li>
-          <Link href={"#"}>{product.address}</Link>
+          <Link href={"#"}>
+            {product.address_city} {product.address_postal_code}
+          </Link>
         </li>
         <li>
-          <span className="font-bold text-black">{product.title}</span>
+          <span className="font-bold text-black">{product.name}</span>
         </li>
       </ol>
     </nav>

@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import { PRODUCTS } from "../data/products";
 
-const ProfilCard = ({ seller, memberSince, hasArrow }) => {
+const ProfilCard = ({ seller, memberSince = false, hasArrow = false }) => {
   const sellerProducts = PRODUCTS.filter(
     (product) => product.sellerId === seller.id
   );
@@ -34,7 +34,7 @@ const ProfilCard = ({ seller, memberSince, hasArrow }) => {
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />
-              <span className="font-bold">({seller.numberReviews})</span>
+              <span className="font-bold">({seller.number_reviews})</span>
             </div>
           </div>
         </div>
