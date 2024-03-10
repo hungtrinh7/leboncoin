@@ -70,7 +70,7 @@ export default function Page() {
     if (state.success) {
       router.push("/");
     }
-  }, [state]);
+  }, [state, router]);
 
   const handleClickContinueAfterTitleInput = () => {
     setBtnClickTitleInput(true);
@@ -83,12 +83,12 @@ export default function Page() {
           <div className="w-3/4">
             {fetchErrorGetCategories && <p>{fetchErrorGetCategories}</p>}
             <h3 className="text-lg font-semibold mb-4">
-              Commençons par l’essentiel !
+              Commençons par l&apos;essentiel !
             </h3>
             <form className="w-full" action={formAction}>
               <input type="hidden" name="user_id" value={1} />
               <label className="text-base">
-                Quel est le titre de l’annonce ? *
+                Quel est le titre de l&apos;annonce ? *
               </label>
               <div className="flex gap-2 mb-8 mt-2">
                 <input
@@ -159,7 +159,7 @@ export default function Page() {
 
                   <div className="mt-4">
                     <label className="text-base">
-                      Description de l'annonce
+                      Description de l&apos;annonce
                     </label>
                     <br />
                     <textarea
