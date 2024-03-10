@@ -3,8 +3,16 @@ import { MapPin, X } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const RecentSearch = ({ title, category, zone }) => {
-  const [isClosed, setIsClosed] = useState(false);
+const RecentSearch = ({
+  title,
+  category,
+  zone,
+}: {
+  title: string;
+  category: string;
+  zone: string;
+}) => {
+  const [isClosed, setIsClosed] = useState<boolean>(false);
 
   const handleClose = () => {
     setIsClosed(true);

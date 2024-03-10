@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { TagDeliveryPossible } from "../Elements";
+import { Product, User } from "../../../common/types";
 
-const Card = ({ seller, product }) => {
+const Card = ({ seller, product }: { seller: User; product: Product }) => {
   const [isFavorited, setIsFavorited] = useState<boolean>(false);
 
   const dateCreated = new Date(product.created_at);

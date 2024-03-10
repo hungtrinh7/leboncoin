@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ChevronRight,
   Clock,
@@ -7,12 +7,47 @@ import {
   UserRound,
 } from "lucide-react";
 import Link from "next/link";
-import { PRODUCTS } from "../data/products";
+import supabase from "../config/supabaseClient";
+import { Product, User } from "../../common/types";
 
-const ProfilCard = ({ seller, memberSince = false, hasArrow = false }) => {
-  const sellerProducts = PRODUCTS.filter(
-    (product) => product.sellerId === seller.id
-  );
+const ProfilCard = ({
+  seller,
+  memberSince = false,
+  hasArrow = false,
+}: {
+  seller: User;
+  memberSince: boolean;
+  hasArrow: boolean;
+}) => {
+  const [productsBySeller, setProductsBySeller] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const findProduct = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select(
+          `
+          *,
+          users (
+            id, username, rating, number_reviews
+          ),
+          categories (
+            id, name
+          )
+          `
+        )
+        .eq("user_id", seller.id);
+
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        setProductsBySeller(data);
+      }
+    };
+
+    findProduct();
+  }, []);
 
   return (
     <>
@@ -27,7 +62,7 @@ const ProfilCard = ({ seller, memberSince = false, hasArrow = false }) => {
                 {seller.username}
               </Link>
             </p>
-            <p className="text-base">{sellerProducts.length} annonces</p>
+            <p className="text-base">{productsBySeller.length} annonces</p>
             <div className="flex gap-1">
               <Star size={16} fill="#B84A14" color="#B84A14" />
               <Star size={16} fill="#B84A14" color="#B84A14" />

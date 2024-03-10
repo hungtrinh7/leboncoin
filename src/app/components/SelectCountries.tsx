@@ -22,7 +22,7 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 const SelectCountries = () => {
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState<boolean>(false);
   const classLink =
     "flex w-max min-w-[140px] p-2 text-black hover:underline hover:bg-slate-200 hover:rounded";
 

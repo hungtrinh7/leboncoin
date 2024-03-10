@@ -1,6 +1,6 @@
+"use client";
 import Button from "./components/UI/Button";
 import { MoveRight, PlusSquare } from "lucide-react";
-
 import RecentSearch from "./components/UI/RecentSearch";
 import TopCategory from "./components/UI/TopCategory";
 import Card from "./components/UI/Card";
@@ -9,15 +9,61 @@ import ListCategories from "./components/ListCategories";
 import ListRegions from "./components/ListRegions";
 import { RECENTS_SEARCH } from "./data/recentsSearch";
 import { IMG_CATEGORIES } from "./data/imgCategories";
-import { PRODUCTS } from "./data/products";
-import { JOBS } from "./data/jobs";
-import { USERS } from "./data/users";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import supabase from "./config/supabaseClient";
+import { Job, Product } from "../common/types";
+
+const categories = [1, 2, 3];
 
 export default function Home() {
-  const toys = PRODUCTS.filter((product) => product.category === "toys");
-  const cars = PRODUCTS.filter((product) => product.category === "cars");
-  const cameras = PRODUCTS.filter((product) => product.category === "camera");
+  const [toys, setToys] = useState<Product[]>([]);
+  const [cars, setCars] = useState<Product[]>([]);
+  const [cameras, setCameras] = useState<Product[]>([]);
+  const [jobs, setJobs] = useState<Job[]>([]);
+
+  useEffect(() => {
+    const findProducts = async () => {
+      const { data, error } = await supabase
+        .from("products")
+        .select(
+          `
+          *,
+          users (
+            id, username, rating, number_reviews
+          ),
+          categories (
+            id, name
+          )
+          `
+        )
+        .in("category_id", categories);
+
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        setToys(data.filter((t) => t.category_id === 1));
+        setCars(data.filter((c) => c.category_id === 2));
+        setCameras(data.filter((c) => c.category_id === 3));
+      }
+    };
+    findProducts();
+  }, []);
+
+  useEffect(() => {
+    const findJobs = async () => {
+      const { data, error } = await supabase.from("jobs").select().limit(5);
+
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        setJobs(data);
+      }
+    };
+    findJobs();
+  }, []);
 
   return (
     <main>
@@ -69,11 +115,9 @@ export default function Home() {
         </h2>
         <h3 className="text-lg font-semibold mt-5">Jeux & Jouets</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {toys.map((toy) => {
-            const seller = USERS.find((user) => user.id === toy.sellerId);
-
-            return <Card key={toy.id} seller={seller} product={toy} />;
-          })}
+          {toys.map((toy) => (
+            <Card key={toy.id} seller={toy.users} product={toy} />
+          ))}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
@@ -84,42 +128,25 @@ export default function Home() {
           </Link>
         </div>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {JOBS.map((job) => (
-            <CardBorder
-              key={job.id}
-              src={job.src}
-              alt={job.alt}
-              title={job.title}
-              salary={job.salary}
-              salaryFrequency={job.salaryFrequency}
-              typeContract={job.typeContract}
-              isApplicationSimplified={job.isApplicationSimplified}
-              address={job.address}
-              dateCreated={job.dateCreated}
-              isNew={job.isNew}
-              nameRecruiter={job.nameRecruiter}
-            />
+          {jobs.map((job) => (
+            <CardBorder key={job.id} job={job} />
           ))}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
         <h3 className="text-lg font-semibold mt-5">Voitures</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {cars.map((car) => {
-            const seller = USERS.find((user) => user.id === car.sellerId);
-
-            return <Card key={car.id} seller={seller} product={car} />;
-          })}
+          {cars.map((car) => (
+            <Card key={car.id} seller={car.users} product={car} />
+          ))}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto">
         <h3 className="text-lg font-semibold mt-5">Appareils photo</h3>
         <div className="flex relative gap-4 mt-4 overflow-x-auto pb-6">
-          {cameras.map((camera) => {
-            const seller = USERS.find((user) => user.id === camera.sellerId);
-
-            return <Card key={camera.id} seller={seller} product={camera} />;
-          })}
+          {cameras.map((camera) => (
+            <Card key={camera.id} seller={camera.users} product={camera} />
+          ))}
         </div>
       </section>
       <section className="flex flex-col max-w-5xl mx-auto mt-6">

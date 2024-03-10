@@ -1,6 +1,5 @@
 export interface User {
   id: number;
-  createdAt: string;
   username: string;
   number_reviews: number;
   rating: number;
@@ -13,7 +12,7 @@ export interface Product {
   name: string;
   price: number;
   category_id: number;
-  category: Category;
+  categories: Category;
   users: User;
   user_id: number;
   is_deliverable: boolean;
@@ -30,7 +29,29 @@ export interface Product {
 
 export interface Category {
   id: number;
-  createdAt: string;
   name: string;
   slug: string;
+}
+
+export interface UserProduct {
+  id: number;
+  user_id: number;
+  product_id: number;
+  is_favorited: boolean;
+  products: Product;
+}
+
+export interface Job {
+  id: number;
+  created_at: Date;
+  img_url: string;
+  title: string;
+  salary: number;
+  salary_frequency: string;
+  type_contract: string;
+  is_app_simplified: boolean;
+  address_city: string;
+  address_postal_code: string;
+  name_recruiter: string;
+  is_new: boolean;
 }

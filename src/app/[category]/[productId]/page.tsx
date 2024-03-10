@@ -287,7 +287,11 @@ export default function Page({ params }) {
                 <Map address={product.address_city} height={"260px"} />
               </div>
               <hr className="my-lg block border-t-sm border-outline my-6 opacity-20" />
-              <ProfilCard seller={product.users} memberSince={true} />
+              <ProfilCard
+                seller={product.users}
+                memberSince={true}
+                hasArrow={false}
+              />
               <section className="flex flex-col max-w-5xl mx-auto">
                 <div className="flex items-baseline justify-between">
                   <h3 className="text-lg font-semibold mt-5">

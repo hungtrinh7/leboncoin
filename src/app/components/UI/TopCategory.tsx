@@ -1,8 +1,16 @@
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
-const TopCategory = ({ imgSrc, title, alt }) => {
+const TopCategory = ({
+  imgSrc,
+  title,
+  alt,
+}: {
+  imgSrc: StaticImageData;
+  title: string;
+  alt: string;
+}) => {
   return (
     <Link href={""}>
       <div className="flex relative w-[180px] rounded">

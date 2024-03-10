@@ -1,7 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import { Product } from "../../common/types";
 
-const Breadcrumb = ({ product }) => {
+const Breadcrumb = ({ product }: { product: Product }) => {
   return (
     <nav
       id="breadcrumb"

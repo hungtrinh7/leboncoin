@@ -1,47 +1,38 @@
 "use client";
-import { Heart, Star, Zap } from "lucide-react";
+import { Heart, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { Job } from "../../../common/types";
 
-const CardBorder = ({
-  src,
-  alt,
-  title,
-  salary,
-  salaryFrequency,
-  typeContract,
-  isApplicationSimplified,
-  address,
-  dateCreated,
-  isNew,
-  nameRecruiter,
-}) => {
+const CardBorder = ({ job }: { job: Job }) => {
   const [isFavorited, setIsFavorited] = useState(false);
+  const dateCreated = new Date(job.created_at);
 
   const handleClickFavorite = () => {
     setIsFavorited(!isFavorited);
   };
 
   let salaryFreq = "par mois";
-  if (salaryFrequency === "daily") {
+  if (job.salary_frequency === "daily") {
     salaryFreq = "par jour";
   }
-  if (salaryFrequency === "daily") {
+  if (job.salary_frequency === "daily") {
     salaryFreq = "par heure";
   }
 
   return (
     <Link href={"#"}>
       <div className="w-[235px] border p-4">
-        <p className="mt-2 text-base font-bold">{title}</p>
+        <p className="mt-2 text-base font-bold">{job.title}</p>
         <div className="flex">
-          <p>{typeContract}</p>
+          <p>{job.type_contract}</p>
           <p className="text-base before:font-bold before:content-['·'] before:text-neutral before:mr-2 ml-2">
-            {salary} € <span className="text-xs">/ {salaryFreq}</span>
+            {job.salary} €{" "}
+            <span className="text-xs">/ {job.salary_frequency}</span>
           </p>
         </div>
-        {isApplicationSimplified ? (
+        {job.is_app_simplified ? (
           <p className="flex w-max text-xs bg-[#FFE9DE] text-[#89380F] px-2 mt-1 font-bold rounded-2xl">
             <Zap size={12} />
             <span className="ml-1">Candidature simplifiée</span>
@@ -50,15 +41,25 @@ const CardBorder = ({
           <p className="h-[12px]"></p>
         )}
 
-        <p className="mt-4 text-xs text-gray-500">{address}</p>
+        <p className="mt-4 text-xs text-gray-500">
+          {job.address_city} {job.address_postal_code}
+        </p>
         <div>
-          <span className="text-xs text-gray-500">{dateCreated}</span>
-          <span>{isNew}</span>
+          <span className="text-xs text-gray-500">
+            {dateCreated.getDate()}/{dateCreated.getMonth()}/
+            {dateCreated.getFullYear()}
+          </span>
+          <span>{job.is_new}</span>
         </div>
         <div className="flex h-8 items-end justify-between mt-6">
           <div className="flex">
-            <Image src={src} alt={alt} width={40} height={26} />
-            <span>{nameRecruiter}</span>
+            <Image
+              src={`/${job.img_url}`}
+              alt={job.title}
+              width={40}
+              height={26}
+            />
+            <span>{job.name_recruiter}</span>
           </div>
           <div>
             <Heart

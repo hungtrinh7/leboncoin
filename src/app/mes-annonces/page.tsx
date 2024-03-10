@@ -1,19 +1,43 @@
 "use client";
-import { useState } from "react";
-import { PRODUCTS } from "../data/products";
+import { useEffect, useState } from "react";
 import CardPostFullWidth from "../components/CardPostFullWidth";
+import supabase from "../config/supabaseClient";
+import { UserProduct } from "../../common/types";
 
 const currentUser = 1;
 
 export default function Page() {
-  const myProducts = PRODUCTS.filter(
-    (product) => product.sellerId === currentUser && product.isFavorite
-  );
+  const [usersProducts, setUsersProducts] = useState<UserProduct[]>([]);
   const [tab, setTab] = useState("mine");
 
   const handleClickTabs = (tab: string) => {
     setTab(tab);
   };
+
+  useEffect(() => {
+    const findFavoriteProducts = async () => {
+      const { data, error } = await supabase
+        .from("users_products")
+        .select(
+          `
+          *,
+          users (*),
+          products (*, categories (*))
+          `
+        )
+        .eq("user_id", currentUser)
+        .eq("is_favorited", true);
+
+      if (error) {
+        console.log(error);
+      }
+      if (data) {
+        setUsersProducts(data);
+      }
+    };
+
+    findFavoriteProducts();
+  }, []);
 
   return (
     <>
@@ -43,9 +67,12 @@ export default function Page() {
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              {myProducts.length > 0 ? (
-                myProducts.map((product) => (
-                  <CardPostFullWidth key={product.id} product={product} />
+              {usersProducts.length > 0 ? (
+                usersProducts.map((userProduct) => (
+                  <CardPostFullWidth
+                    key={userProduct.id}
+                    product={userProduct.products}
+                  />
                 ))
               ) : (
                 <p className="font-bold">

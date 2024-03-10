@@ -3,11 +3,12 @@ import Button from "./UI/Button";
 import { LockKeyhole } from "lucide-react";
 import Image from "next/image";
 import ProfilCard from "./ProfilCard";
+import { User } from "../../common/types";
 
-const RightColumn = ({ seller }) => {
+const RightColumn = ({ seller }: { seller: User }) => {
   return (
     <div className="w-2/5 ml-4 p-6 border shadow-lg h-fit">
-      <ProfilCard seller={seller} hasArrow={true} />
+      <ProfilCard seller={seller} hasArrow={true} memberSince={false} />
       <hr className="my-lg block border-t-sm border-outline my-4" />
       <Button name="Réserver" className="w-full" url="/" />
       <Button
