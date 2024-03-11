@@ -44,7 +44,7 @@ export default function Page({ params }) {
             id, username, rating, number_reviews
           ),
           categories (
-            id, name
+            id, name, slug
           )
           `
         )
@@ -71,6 +71,9 @@ export default function Page({ params }) {
             *,
             users (
               id, username, rating, number_reviews
+            ),
+            categories (
+              id, name, slug
             )
             `
           )
@@ -97,6 +100,9 @@ export default function Page({ params }) {
             *,
             users (
               id, username, rating, number_reviews
+            ),
+            categories (
+              id, name, slug
             )
             `
           )

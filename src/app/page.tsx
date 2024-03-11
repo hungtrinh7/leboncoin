@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import supabase from "./config/supabaseClient";
 import { Job, Product } from "../common/types";
 
-const categories = [1, 2, 3];
+const categoryIds = [1, 2, 3];
 
 export default function Home() {
   const [toys, setToys] = useState<Product[]>([]);
@@ -32,12 +32,10 @@ export default function Home() {
           users (
             id, username, rating, number_reviews
           ),
-          categories (
-            id, name
-          )
+          categories (*)
           `
         )
-        .in("category_id", categories);
+        .in("category_id", categoryIds);
 
       if (error) {
         console.log(error);

@@ -18,7 +18,7 @@ const Card = ({ seller, product }: { seller: User; product: Product }) => {
   return (
     <>
       {seller && (
-        <Link href={`/${product.category}/${product.id}`}>
+        <Link href={`/${product.categories.slug}/${product.id}`}>
           <div className="w-[150px] h-[386px]">
             <div className="flex">
               <span className="flex h-5 w-5 rounded-full bg-green-700 text-xs items-center justify-center text-white">
