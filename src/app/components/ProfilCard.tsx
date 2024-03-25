@@ -47,7 +47,7 @@ const ProfilCard = ({
     };
 
     findProduct();
-  }, []);
+  }, [seller.id]);
 
   return (
     <>
